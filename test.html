@@ -3,7 +3,7 @@
 <script>
 var BASE = "https://jcqdsjyinaobhigubxkc.supabase.co";
 var KEY  = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjcWRzanlpbmFvYmhpZ3VieGtjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMjkzMDgsImV4cCI6MjEwNTgwNTMwOH0.1KLjxLITFnDDCD5WqROYJNKYcef3ItxNB0NMbYkTwEc";
-function h(){ return { "apikey": KEY, "Authorization": "Bearer " + KEY, "Accept": "application/json" }; }
+function h(){ return { "Content-Type": "application/json", "apikey": KEY, "Authorization": "Bearer " + KEY, "Accept": "application/json" }; }
 var out = document.getElementById("out");
 fetch(BASE + "/storage/v1/object/list/gallery", { method:"POST", headers:h(), body: JSON.stringify({prefix:"photos",limit:200,offset:0,sortBy:{column:"created_at",order:"desc"}})})
  .then(function(r){ return r.text().then(function(t){ return { status:r.status, body:t }; }); })
