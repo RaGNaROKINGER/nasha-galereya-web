@@ -204,7 +204,9 @@ main { flex:1; overflow:auto; -webkit-overflow-scrolling:touch; }
   }
 
   function hPost(url, body){
-    return fetch(BASE + url, { method:"POST", headers:head(), body: body });
+    var h = head();
+    h["Content-Type"] = "application/json";
+    return fetch(BASE + url, { method:"POST", headers:h, body: body });
   }
   function hGet(url){
     return fetch(BASE + url, { method:"GET", headers:head() });
